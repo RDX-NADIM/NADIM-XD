@@ -36,25 +36,41 @@ else:
 A = '\x1b[1;97m';R = '\x1b[38;5;196m';Y = '\033[1;33m';G = '\x1b[38;5;46m';B = '\x1b[38;5;8m';G1 = '\x1b[38;5;48m';G2 = '\x1b[38;5;47m';G3 = '\x1b[38;5;48m';G4 = '\x1b[38;5;49m';G5 = '\x1b[38;5;50m';X = '\33[1;34m';X1 = '\x1b[38;5;14m';X2 = '\x1b[38;5;123m';X3 = '\x1b[38;5;122m';X4 = '\x1b[38;5;86m';X5 = '\x1b[38;5;121m';S = '\x1b[1;96m';M = '\x1b[38;5;205m'
 #----------------------------[USER/AGENT]-----------------------------------#
 
+operating_systems = [
+    "Linux; Android 11",
+    "Windows NT 10.0",
+    "Macintosh; Intel Mac OS X 10_15_7",
+    "X11; Ubuntu; Linux x86_64",
+]
+
+devices = [
+    "W-K610-FRA",
+    "Pixel 5",
+    "Galaxy S21",
+    "Nexus 6P",
+]
+
+builds = [
+    "Build/RP1A.200720.011",
+    "Build/XYZ123.456",
+    "Build/ABC987.654",
+]
+
+browsers = [
+    "Chrome/104.0.5112.69",
+    "Firefox/93.0",
+    "Safari/537.36",
+]
+
+
 def ua():
-    
-    user_agents = [
-        "Mozilla/5.0 (Windows NT 10.0; {0}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{1}.0.{2}.{3} Safari/537.36",
-        "Mozilla/5.0 (Linux; Android 12; X104-EEA) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6304.201 Mobile Safari/537.36",
-        "Mozilla/5.0 (Linux; Android 14; MI PAD 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6315.215 Mobile Safari/537.36",
-        "Mozilla/5.0 (Linux; Android 8.1.0; HELIOS) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36"
-    ]
+    os = random.choice(operating_systems)
+    device = random.choice(devices)
+    build = random.choice(builds)
+    browser = random.choice(browsers)
 
-    
-    chosen_user_agent = random.choice(user_agents)
-
-        version = random.randint(9, 11)
-        chrome_version = random.randint(99, 175)
-        build_number = random.randint(4500, 4999)
-        patch_number = random.randint(35, 99)
-        return chosen_user_agent.format(version, chrome_version, build_number, patch_number)
-    
-    return chosen_user_agent
+    user_agent = f"Mozilla/5.0 ({os}; {device} {build}) AppleWebKit/537.36 (KHTML, like Gecko) {browser} Mobile Safari/537.36"
+    return user_agent
 #----------------------------[LOGO]-----------------------------------#
 logo = (f"""        
   
